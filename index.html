@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="quoteBook">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quote Book</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body ng-controller="mainCtrl">
+    <h1>Is Angular Working:{{test}}</h1>
+
+    <!-- <div class="quoteList">
+      {{QuoteArray}}
+    </div> -->
+
+    <!--  I need the quotes in single lines. AKA to iterate each index and display in view.. HENCE NG-REPATE -->
+    <!--
+    1. all inputs should have databinding HENCE ng-model
+    2. ng-model should be linked to view
+    3. ng-modle can be also linked to Controllers
+  -->
+  <input type="text" placeholder="Add new quote!" ng-model='newQuoteText'>
+  <input type="text" placeholder="Quotes author!" ng-model='newQuoteAuthor'>
+  <button ng-click="addNewQuote()">Add Quote</button>
+  <!-- add something to ng-click -->
+
+
+    <p ng-repeat="quote in QuoteArray">
+      Quote: {{quote.text}}
+      <br>
+      Author: {{quote.author}}
+      <button ng-click = "deleteQuote(quote)">Delete</button>
+      <!-- add something to ng-click -->
+      <!-- need to delete the quote next to the delte button HENCE pass the quote in QuoteArray -->
+    </p>
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="./scripts/app.js" charset="utf-8"></script>
+    <script src="./scripts/mainCtrl.js" charset="utf-8"></script>
+    <script src="./scripts/dataService.js" charset="utf-8"></script>
+</body>
+
+</html>
